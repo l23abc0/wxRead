@@ -8,7 +8,20 @@ import requests
 import urllib.parse
 from push import push
 from log_utils import setup_logging
-from config import data, headers, cookies, READ_NUM, PUSH_METHOD, book, chapter
+from config import data, headers, cookies, READ_NUM_MIN, READ_NUM_MAX, PUSH_METHOD, book, chapter
+
+
+def generate_read_num(min_val=2, max_val=1200):
+    """
+    生成随机的阅读数量
+    """
+    # 确保 min <= max
+    if min_val > max_val:
+        min_val, max_val = max_val, min_val
+    
+    return random.randint(min_val, max_val)
+
+READ_NUM = generate_read_num(READ_NUM_MIN,READ_NUM_MAX)
 
 
 # 加密盐及其它默认值
