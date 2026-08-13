@@ -8,7 +8,7 @@ import requests
 import urllib.parse
 from push import push
 from log_utils import setup_logging
-from config import data, headers, cookies, READ_NUM_MIN, READ_NUM_MAX, PUSH_METHOD, book, chapter
+from config import data, headers, cookies, READ_NUM_MIN, READ_NUM_MAX, PUSH_METHOD, book, chapter, BOOK_ID
 
 
 def generate_read_num(min_val=2, max_val=1200):
@@ -93,7 +93,7 @@ logging.info(f"一共需要阅读 {READ_NUM} 次。")
 
 while index <= READ_NUM:
     data.pop('s')
-    data['b'] = random.choice(book)
+    data['b'] = BOOK_ID or random.choice(book)
     data['c'] = random.choice(chapter)
     thisTime = int(time.time())
     data['ct'] = thisTime
