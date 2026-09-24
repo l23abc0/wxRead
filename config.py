@@ -11,7 +11,7 @@ import re
 READ_NUM_MIN = int(os.getenv('READ_NUM_MIN') or 40)
 READ_NUM_MAX = int(os.getenv('READ_NUM_MAX') or 1200)
 # 固定阅读某书的ID
-BOOK_ID = "" or os.getenv('BOOK_ID')
+BOOK_ID = "2bb32ff0813ab6ffcg014315" or os.getenv('BOOK_ID')
 # 需要推送时可选，可选pushplus、wxpusher、telegram
 PUSH_METHOD = "" or os.getenv('PUSH_METHOD')
 # pushplus推送时需填
